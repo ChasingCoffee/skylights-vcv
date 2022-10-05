@@ -45,8 +45,6 @@ Model* vactrolyzer_model = createModel<vactrolyzer_module, vactrolyzer_module_wi
 
 void init(Plugin *p) {
   pluginInstance = p;
-  p->slug = TOSTRING(SLUG);
-  p->version = TOSTRING(VERSION);
 
   // Add all Models defined throughout the plugin
   // p->addModel(recorder_model);

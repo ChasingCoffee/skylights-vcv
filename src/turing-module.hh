@@ -1,8 +1,7 @@
 #pragma once
 
-#include "bit-spigot.hh"
-#include "dsp/digital.hpp"
 #include "skylights.hh"
+#include "bit-spigot.hh"
 
 struct turing_module : Module {
   enum ParamIds { P_WRITE, P_LENGTH, P_MODE, P_POLE, P_SCALE, NUM_PARAMS };

@@ -4,8 +4,6 @@
 whatnote_module_widget::whatnote_module_widget(Module *module)
     : ModuleWidget() {
   setModule(module);
-  font = APP->window->loadFont(
-      asset::plugin(pluginInstance, "res/LEDCalculator.ttf"));
 
   setPanel(
       APP->window->loadSvg(asset::plugin(pluginInstance, "res/WhatNote.svg")));
@@ -27,6 +25,9 @@ void whatnote_module_widget::draw(const DrawArgs &args) {
   static const char *semitone_labels[12] = {"C",  "C#", "D",  "D#", "E",  "F",
                                             "F#", "G",  "G#", "A",  "A#", "B"};
 
+  std::shared_ptr<Font> font = APP->window->loadFont(
+      asset::plugin(pluginInstance, "res/LEDCalculator.ttf"));
+
   ModuleWidget::draw(args);
   if (!mod)
     return;
@@ -34,7 +35,9 @@ void whatnote_module_widget::draw(const DrawArgs &args) {
   char buffer[128];
 
   nvgFillColor(args.vg, nvgRGBA(0x00, 0x00, 0x00, 0xFF));
-  nvgFontFaceId(args.vg, font->handle);
+  if(font){
+    nvgFontFaceId(args.vg, font->handle);  
+  }
   nvgTextLetterSpacing(args.vg, 0);
   nvgTextAlign(args.vg, NVG_ALIGN_CENTER);
 

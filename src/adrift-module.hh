@@ -1,6 +1,5 @@
 #include "bit-spigot.hh"
 #include "skylights.hh"
-#include <dsp/digital.hpp>
 
 struct adrift_module : public Module {
   static const size_t channels = 6;
